@@ -365,8 +365,6 @@ namespace InterfazWeb
             usuReg.Pregunta = usuNuevo.Pregunta;
             usuReg.Respuesta = usuNuevo.Respuesta;
            
-            
-
             usuariosTabla.AddUsuariosRow(usuReg);
             usuariosAdapter.Update(usuReg);
             usuariosTabla.AcceptChanges();

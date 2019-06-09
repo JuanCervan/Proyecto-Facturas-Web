@@ -29,6 +29,8 @@ namespace InterfazWeb
                     
                     txbContrasenya.Attributes["type"] = "password";
                     txbContrasenyaRep.Attributes["type"] = "password";
+                    txbRespuesta.Attributes["type"] = "password";
+                    txbRespuestaRep.Attributes["type"] = "password";
                 }
                 
             }  
@@ -38,12 +40,10 @@ namespace InterfazWeb
         {
             if (Page.IsValid)
             {
-                Timer1.Enabled = false;
-               // usuNuevo = new Usuario(-1, txbNombre.Text, txbContrasenya.Text, 0, "Deshabilitado", txbEmail.Text, txbPregunta.Text, txbRespuesta.Text);
-                //if (btnGuardar.Text=="Guardar") {
+                    //Timer1.Enabled = false;
                     usuarioActivo = new Usuario(-1, txbNombre.Text, txbContrasenya.Text,3, txbEmail.Text, txbPregunta.Text, txbRespuesta.Text);
                     LNyAD.AddUsuario(usuarioActivo);
-                    lbAviso.Text = "El usuario " + usuarioActivo.Nombre + " ha sido añadido correctamente, recibirá un email del Administrador cuando sea habilitado";
+                    lbAviso.Text = "El usuario " + usuarioActivo.Nombre + " ha sido registrado, recibirá un email del Administrador cuando sea habilitado";
                     lbAviso.Visible = true;
                     txbNombre.Text = String.Empty;
                     txbContrasenya.Text = String.Empty;
@@ -55,8 +55,13 @@ namespace InterfazWeb
                     txbEmail.Text = String.Empty;
                     txbPregunta.Text = String.Empty;
                     txbRespuesta.Text = String.Empty;
+                    txbRespuesta.TextMode = TextBoxMode.SingleLine;
+                    txbRespuesta.Attributes["type"] = "password";
+                    txbRespuestaRep.Text = String.Empty;
+                    txbRespuestaRep.TextMode = TextBoxMode.SingleLine;
+                    txbRespuestaRep.Attributes["type"] = "password";
 
-                    btnCancelar.Text = "Volver";
+                btnCancelar.Text = "Volver";
                     //btnGuardar.Enabled = false;
                     MailMessage correo = new MailMessage();
                     correo.To.Add("jcervan@gmx.es");
@@ -77,10 +82,8 @@ namespace InterfazWeb
 
                     }
                     catch { }
-                Timer1.Enabled = true;
+               // Timer1.Enabled = true;
               
-
-
             }
         }
 
@@ -98,8 +101,8 @@ namespace InterfazWeb
 
         protected void Timer1_Tick(object sender, EventArgs e)
         {
-            lbAviso.Visible = false;
-            Timer1.Enabled = false;
+            /*lbAviso.Visible = false;
+            Timer1.Enabled = false;*/
         }
     }
 }

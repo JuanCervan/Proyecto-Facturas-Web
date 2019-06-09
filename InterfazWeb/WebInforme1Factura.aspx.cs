@@ -19,8 +19,10 @@ namespace InterfazWeb
 
             Factura fact = (Factura)Session["FacturaPrint"];
             int idFactura = fact.IdFactura;
+            int numFact = fact.Numero;
             txbIdFactura.Text = idFactura.ToString();
             ReportViewer1.LocalReport.ReportPath = Server.MapPath("bin/1Factura.rdlc");
+            ReportViewer1.LocalReport.DisplayName = "Factura "+numFact.ToString();
         }
 
        

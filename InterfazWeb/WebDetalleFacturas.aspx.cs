@@ -22,15 +22,18 @@ namespace InterfazWeb
             {
                 fact = (Factura)Session["FacturaEdit"];
                 cliente = (Cliente)Session["ClienteFactura"];
+                
 
                 if (fact.IdFactura != -1)
                 {
                     CargaControles();
+                    btnGuardar.Text = "Actualizar";
                 }
                 else
                 {
                     lbCabecera.Text = "Añadir Factura de " + cliente.Nombre;
                     txbNumero.Text = fact.Numero.ToString();
+                    btnGuardar.Text = "Guardar";
                 }
                
             }
@@ -45,15 +48,6 @@ namespace InterfazWeb
             txbFechaNueva.Text = String.Format("{0:yyyy-MM-dd}", date);
 
             txbNumero.Text = fact.Numero.ToString();
-            //txbConcepto.Text = fact.Concepto;
-            //txbImporte.Text = fact.Importe.ToString("0.00");
-            //ddlTipoIva.Text = fact.TipoIva;
-            /*double cuota = Convert.ToDouble(txbImporte.Text) * (Convert.ToDouble(ddlTipoIva.Text)) / 100;
-            double cuotaR = Math.Round(cuota, 2);
-            txbCuota.Text = cuotaR.ToString("0.00");
-            double total = Convert.ToDouble(txbImporte.Text) + cuota;
-            double totalR = Math.Round(total, 2);
-            txbTotal.Text = totalR.ToString("0.00");*/
             lbCabecera.Text = "Editar Factura de " + cliente.Nombre;
         }
 
@@ -105,7 +99,7 @@ namespace InterfazWeb
         {
             if (!Page.IsValid)
                 return;
-            Timer1.Enabled = false;
+           // Timer1.Enabled = false;
             string anyo = txbFechaNueva.Text.Substring(0, 4);
             string mes = txbFechaNueva.Text.Substring(5, 2);
             string dia = txbFechaNueva.Text.Substring(8, 2);
@@ -130,7 +124,7 @@ namespace InterfazWeb
             }
 
             btnCancelar.Text = "Volver";
-            Timer1.Enabled = true;
+            //Timer1.Enabled = true;
             txbNumero.Text = LNyAD.MaxNumero().ToString();
         }
 
@@ -151,17 +145,9 @@ namespace InterfazWeb
 
         protected void Timer1_Tick(object sender, EventArgs e)
         {
-            lbAviso.Visible = false;
-            Timer1.Enabled = false;
+            //lbAviso.Visible = false;
+            //Timer1.Enabled = false;
         }
 
-        /*  protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
-          {
-              double valor;
-              if(!double.TryParse(txbImporte.Text,out valor))
-              {
-                  args.IsValid = false;
-              }
-          }*/
     }
 }

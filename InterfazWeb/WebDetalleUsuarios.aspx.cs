@@ -24,15 +24,19 @@ namespace InterfazWeb
                 usu = (Usuario)Session["UsuarioEditar"];
                 // tipoActual = usu.Tipo;//PRUEBA
                 // tipoActual = LNyAD.TipoUsuario(usu.Acceso);
-               // ddlTipo.SelectedValue = usu.Acceso.ToString();
+                // ddlTipo.SelectedValue = usu.Acceso.ToString();
 
-               // Session["tipoAct"] = tipoActual;
+                // Session["tipoAct"] = tipoActual;
                 if (usu.IdUsuario != -1)
                 {
                     CargaDatos();
+                    btnGuardar.Text = "Actualizar";
                 }
                 else
+                {
                     DatosVacios();
+                    btnGuardar.Text = "Guardar";
+                }
                 
             }
         }
@@ -83,7 +87,7 @@ namespace InterfazWeb
         {
             if (!Page.IsValid)
                 return;
-            Timer1.Enabled = false;
+           // Timer1.Enabled = false;
             int acc=3;
             //if (ddlTipo.Text == "Administrador")
             if(Convert.ToInt32(ddlTipo.SelectedValue)==1)
@@ -142,7 +146,7 @@ namespace InterfazWeb
                 }
             }
             btnCancelar.Text = "Volver";
-            Timer1.Enabled = true;
+            //Timer1.Enabled = true;
         }
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
@@ -158,18 +162,14 @@ namespace InterfazWeb
 
             if (LNyAD.UsuarioActivo(txbNombre.Text).Count > 0&&txbNombre.Text==LNyAD.UsuarioActivo(txbNombre.Text)[0].Nombre&&LNyAD.UsuarioActivo(txbNombre.Text)[0].IdUsuario!=usu.IdUsuario)
             {
-
-                //if (txbNombre.Text == LNyAD.UsuarioActivo(txbNombre.Text)[0].Nombre)
-                //{
                     args.IsValid = false;
-                //}
             }
         }
 
         protected void Timer1_Tick(object sender, EventArgs e)
         {
-            lbAviso.Visible = false;
-            Timer1.Enabled = false;
+            //lbAviso.Visible = false;
+            //Timer1.Enabled = false;
         }
     }
 }

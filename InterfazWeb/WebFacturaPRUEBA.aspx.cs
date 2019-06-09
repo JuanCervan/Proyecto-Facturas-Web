@@ -20,7 +20,11 @@ namespace InterfazWeb
             Cliente client = (Cliente)Session["ClienteFactura"];
             Factura factPrint = (Factura)Session["FacturaPrint"];
             int idFactura =factPrint.IdFactura;
+            int numFact = factPrint.Numero;
+            string nombreCli = client.Nombre;
             txbIdFactura.Text = idFactura.ToString();
+            ReportViewer1.LocalReport.ReportPath = Server.MapPath("bin/1Factura.rdlc");
+            ReportViewer1.LocalReport.DisplayName = "Factura " + numFact.ToString()+" "+nombreCli;
         }
 
         protected void Button1_Click(object sender, EventArgs e)

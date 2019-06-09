@@ -94,11 +94,6 @@ namespace InterfazWeb
         {
             if (e.Row.RowType == DataControlRowType.Footer)
             {
-                /*if (dgv.Rows.Count == 1)
-                    e.Row.Cells[0].Text = dgv.Rows.Count.ToString() + " Concepto";
-                else
-                    e.Row.Cells[0].Text = dgv.Rows.Count.ToString() + " Conceptos";*/
-
                 if (numConceptos == 1)
                     e.Row.Cells[0].Text = numConceptos.ToString() + " Concepto";// Total";
                 else
@@ -112,7 +107,7 @@ namespace InterfazWeb
 
         protected void dgv_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            dgv.PageIndex = e.NewPageIndex;//FUNCIONA!!!
+            dgv.PageIndex = e.NewPageIndex;
             Session["pagC"] = e.NewPageIndex;
             CargaConceptos();
         }

@@ -116,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap.css" />
+    <Content Include="css\estilos.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="iconfav.ico" />

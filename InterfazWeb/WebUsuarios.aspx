@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon"/>
     <title>Facturas Web v0.2</title>
     <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/estilos.css" rel="stylesheet" />
     <style type="text/css">
         .auto-style1 {
             height: 23px;
@@ -18,10 +19,31 @@
         .dgv{
             margin-left:25px;
         }
+        .auto-style2 {
+            height: 23px;
+            width: 4px;
+        }
+        .auto-style4 {
+            height: 23px;
+            width: 612px;
+        }
+        .auto-style5 {
+            width: 667px;
+        }
+        .auto-style6 {
+            width: 19px;
+        }
+        .auto-style7 {
+            width: 4px;
+        }
+        .auto-style8 {
+            width: 612px;
+        }
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <div class="central">
+    <form id="form1" runat="server" class="centro">
     <div>
     
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -72,20 +94,18 @@
         <asp:Button ID="btnCancelar" runat="server" PostBackUrl="~/WebClientes.aspx" Text="Volver" CssClass="btn-danger" />
         <br />
         <br />
-&nbsp;
-        <br />
-        <asp:Panel ID="Panel1" runat="server" BackColor="Silver" Height="87px" Visible="False">
+        <asp:Panel ID="Panel1" runat="server" Height="87px" Visible="False">
             <table style="width:100%; height: 78px;">
                 <tr>
-                    <td class="auto-style1"></td>
-                    <td class="auto-style1">
-                        <asp:Label ID="lbConfirmacion" runat="server" Text="Label" Visible="False"></asp:Label>
+                    <td class="auto-style2"></td>
+                    <td class="auto-style4">
+                        <asp:Label ID="lbConfirmacion" runat="server" Text="Label" Visible="False" Font-Bold="True"></asp:Label>
                     </td>
                     <td class="auto-style1"></td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>
+                    <td class="auto-style7">&nbsp;</td>
+                    <td class="auto-style8">
                         <asp:Button ID="btnSi" runat="server" OnClick="btnSi_Click" Text="Si" Visible="False" CssClass="btn-outline-success" Width="35px" />
                         &nbsp;
                         <asp:Button ID="btnNo" runat="server" OnClick="btnNo_Click" Text="No" Visible="False" CssClass="btn-outline-danger" />
@@ -93,12 +113,13 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style7">&nbsp;</td>
+                    <td class="auto-style8">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
             </table>
         </asp:Panel>
     </form>
+        </div>
 </body>
 </html>

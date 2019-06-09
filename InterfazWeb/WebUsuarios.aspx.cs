@@ -76,22 +76,25 @@ namespace InterfazWeb
             dgv.SelectedIndex = e.RowIndex;
             int numAdm = LNyAD.NumeroAdm();//esta consulta me devuelve el numero de Adm
             lbAviso.Visible = false;
-            if (dgv.Rows[e.RowIndex].Cells[4].Text == "1")
-            {
-                lbAviso.Text = numAdm.ToString();
-
-                if (numAdm !=1) {
-                    MostrarConfirmacion(true);
-                }
-                else
+            
+                if (dgv.Rows[e.RowIndex].Cells[4].Text == "1")
                 {
-                    lbAviso.Text="No puede eliminar al usuario "+dgv.Rows[e.RowIndex].Cells[2].Text+", es el único Administrador";
-                    lbAviso.Visible = true;
-                }
-            }
+                    lbAviso.Text = numAdm.ToString();
 
-            else
-            MostrarConfirmacion(true);
+                    if (numAdm != 1)
+                    {
+                        MostrarConfirmacion(true);
+                    }
+                    else
+                    {
+                        lbAviso.Text = "No puede eliminar al usuario " + dgv.Rows[e.RowIndex].Cells[2].Text + ", es el único Administrador";
+                        lbAviso.Visible = true;
+                    }
+                }
+
+                else
+                    MostrarConfirmacion(true);
+         
         }
 
         private void MostrarConfirmacion(bool mostrar)
@@ -118,7 +121,15 @@ namespace InterfazWeb
         {
             
             int idUsuario = Convert.ToInt32(dgv.Rows[dgv.SelectedIndex].Cells[1].Text);
-            LNyAD.DeleteUsuario(idUsuario);
+            try
+            {
+                LNyAD.DeleteUsuario(idUsuario);
+            }
+            catch
+            {
+                lbAviso.Text = "No se puede eliminar el usuario " + dgv.Rows[dgv.SelectedIndex].Cells[2].Text + " tiene clientes asignados";
+                lbAviso.Visible = true;
+            }
             dgv.SelectedIndex = -1;
             MostrarConfirmacion(false);
             CargaUsuarios();

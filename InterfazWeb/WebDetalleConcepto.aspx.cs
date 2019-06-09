@@ -24,9 +24,14 @@ namespace InterfazWeb
                 {
                     lbCabecera.Text = "Editar Concepto de Facturación";
                     CargaConcepto();
+                    btnGuardar.Text = "Actualizar";
 
                 }
-                else lbCabecera.Text = "Añadir Concepto de Facturación";
+                else
+                {
+                    lbCabecera.Text = "Añadir Concepto de Facturación";
+                    btnGuardar.Text = "Guardar";
+                }
             }
         }
 
@@ -34,14 +39,15 @@ namespace InterfazWeb
         {
             txbConcepto.Text = concepto.Nombre;
             txbPrecio.Text = concepto.Precio.ToString();
-            cbTipoIva.SelectedItem.Text = concepto.TipoIva;
+            // cbTipoIva.SelectedItem.Text = concepto.TipoIva;
+            cbTipoIva.Text = concepto.TipoIva.ToString();
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!Page.IsValid)
                 return;
-            Timer1.Enabled = false;
+            //Timer1.Enabled = false;
 
             concepto = new Concepto(((Concepto)Session["conceptoE"]).IdConcepto,txbConcepto.Text,Convert.ToDouble(txbPrecio.Text),cbTipoIva.SelectedValue);//, txbConcepto.Text,Convert.ToDouble(txbImporte.Text), ddlTipoIva.Text);
 
@@ -60,11 +66,8 @@ namespace InterfazWeb
                 txbConcepto.Text = String.Empty;
                 txbPrecio.Text = String.Empty;
             }
-            /*txbConcepto.Text = "";
-            txbPrecio.Text = "";
-            cbTipoIva.Text = "";*/
 
-            Timer1.Enabled = true;
+            //Timer1.Enabled = true;
         }
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
@@ -98,8 +101,8 @@ namespace InterfazWeb
 
         protected void Timer1_Tick(object sender, EventArgs e)
         {
-            lbAviso.Visible = false;
-            Timer1.Enabled = false;
+           // lbAviso.Visible = false;
+           // Timer1.Enabled = false;
         }
     }
 }

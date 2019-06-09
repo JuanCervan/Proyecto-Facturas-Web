@@ -29,15 +29,8 @@ namespace InterfazWeb
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-            Timer1.Enabled = false;
-            /* if (LNyAD.UsuarioActivo(txbUsuario.Text).Count == 0)
-            {
-                lbAviso.Text = "El usuario no existe, teclee un usuario válido...";
-                lbAviso.CssClass = "alert-danger";
-                lbAviso.Visible = true;
-                txbUsuario.Focus();
-            }
-            else*/ if (LNyAD.UsuarioActivo(user.Nombre)[0].Email != txbMail.Text)
+            //Timer1.Enabled = false;
+            if (LNyAD.UsuarioActivo(user.Nombre)[0].Email != txbMail.Text)
             {
                 lbAviso.Text = "La dirección de correo electrónico no es correcta...";
                 lbAviso.Visible = true;
@@ -67,43 +60,32 @@ namespace InterfazWeb
                 try
                 {
                     cliente.Send(correo);
-                    lbAviso.Text = "Se ha enviado a " + user.Email + " sus datos de acceso, compruebe su carpeta de spam ó correo no deseado si no recibe el mail";
+                    lbAviso.Text = "Se ha enviado a " + user.Email + " sus datos de acceso";
                     lbAviso.CssClass = "alert-info";
                     lbAviso.Visible = true;
-                   
-                    //MessageBox.Show("Se ha enviado a " + user.Email + " sus datos de acceso a la aplicación\nSi no recibe el correo compruebe de correo no deseado ó spam.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txbMail.Text = String.Empty;
+                    txbRespuesta.Text = String.Empty;
                 }
                 catch
                 {
-                    lbAviso.Text = "No se ha podido enviar el correo a " + user.Email + ", compruebe que dicha dirección esté aún activa ó contacte con el Administrador";
+                    lbAviso.Text = "No se ha podido enviar el correo a " + user.Email;
                     lbAviso.CssClass = "alert-danger";
                     lbAviso.Visible = true;
-                    //MessageBox.Show("No se ha podido enviar a " + user.Email + " sus datos de acceso a la aplicación, consulte con el Administrador", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txbMail.Text = String.Empty;
+                    txbRespuesta.Text = String.Empty;
                 }
-                //txbMail.Text = "";
-                //user = null;
             }
-            Timer1.Enabled = true;
+            //Timer1.Enabled = true;
         }
 
         protected void txbUsuario_TextChanged(object sender, EventArgs e)
         {
-            /*if (LNyAD.UsuarioActivo(txbUsuario.Text)[0].Nombre == txbUsuario.Text)
-            {
-                
-                lbPregunta.Text = LNyAD.UsuarioActivo(txbUsuario.Text)[0].Pregunta;
-                lbPregunta.Visible = true;
-            }*/
+            
         }
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            /*if (LNyAD.UsuarioActivo(user.Nombre)[0].Nombre == txbUsuario.Text)
-           {
-
-               lbPregunta.Text = LNyAD.UsuarioActivo(txbUsuario.Text)[0].Pregunta;
-               lbPregunta.Visible = true;
-           }*/
+           
         }
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
@@ -126,8 +108,8 @@ namespace InterfazWeb
 
         protected void Timer1_Tick(object sender, EventArgs e)
         {
-            lbAviso.Visible = false;
-            Timer1.Enabled = false;
+            //lbAviso.Visible = false;
+            //Timer1.Enabled = false;
         }
     }
 }

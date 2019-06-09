@@ -99,10 +99,7 @@ namespace InterfazWeb
 
             Usuario usu = (Usuario)Session["UsuarioActivo"];
             int idUsuario = usu.IdUsuario;
-            Timer1.Enabled = false;
-            // string letra = txbNif.Text.Substring(0, 1);
-            //string num = txbNif.Text.Substring(1);
-            //string cif = letra + "-" + num;
+            //Timer1.Enabled = false;
             int idCliente = ((Cliente)Session["ClienteE"]).IdCliente;
             if(idCliente!=-1)
             cliente = new Cliente(idCliente,txbNombre.Text,txbNif.Text,txbDireccion.Text,txbCiudad.Text,txbTelefono.Text,txbEmail.Text,txbContacto.Text,Convert.ToInt32(cbUser.SelectedValue));
@@ -134,9 +131,7 @@ namespace InterfazWeb
             }
 
             btnCancelar.Text = "Volver";
-
-            // Response.Redirect("WebClientes.aspx");
-            Timer1.Enabled = true;
+           // Timer1.Enabled = true;
         }
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
@@ -154,10 +149,6 @@ namespace InterfazWeb
             Usuario usu = (Usuario)Session["UsuarioActivo"];
             int idUsuario = usu.IdUsuario;
             cliente = new Cliente(((Cliente)Session["ClienteE"]).IdCliente, txbNombre.Text, txbNif.Text, txbDireccion.Text, txbCiudad.Text, txbTelefono.Text, txbEmail.Text, txbContacto.Text,idUsuario);
-            /*String cif = txbNif.Text;
-            string cifLetra = cif.Substring(0, 1);
-            string cifNum = cif.Substring(1);
-            string cifFinal = cifLetra + "-" + cifNum;*/
 
             if (LNyAD.BuscaClienteNif(txbNif.Text).Count > 0&&txbNif.Text==LNyAD.BuscaClienteNif(txbNif.Text)[0].Cif&&LNyAD.BuscaClienteNif(txbNif.Text)[0].IdCliente!=cliente.IdCliente)
             {
@@ -167,8 +158,8 @@ namespace InterfazWeb
 
         protected void Timer1_Tick(object sender, EventArgs e)
         {
-            lbAviso.Visible = false;
-            Timer1.Enabled = false;
+           /* lbAviso.Visible = false;
+            Timer1.Enabled = false;*/
         }
     }
 }

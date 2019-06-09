@@ -1,0 +1,37 @@
+﻿body {
+
+}
+
+.central {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    
+}
+.centro{
+    grid-column:2/3;
+    width:100%;
+}
+.contenido-centrado {
+    text-align: center;
+}
+.cabecera{
+     margin-top: 10px;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    align-content:center;
+}
+.cabe{
+    grid-column:2/3;
+    width:100%;
+}
+.centralgrid{ 
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+}
+.centroclientes{
+     margin-top: 10px;
+    display: grid;
+    grid-template-columns: 5% 90% 5%;
+}

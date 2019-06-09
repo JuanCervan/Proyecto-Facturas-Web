@@ -43,43 +43,33 @@ namespace InterfazWeb
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            //if (!Page.IsValid)
-            //  return;
-            Timer1.Enabled = false;
+            if (!Page.IsValid)
+              return;
+            //Timer1.Enabled = false;
             usuEdit = new Usuario(((Usuario)Session["UsuarioActivo"]).IdUsuario, txbNombre.Text, txbContrasenya.Text, ((Usuario)Session["UsuarioActivo"]).Acceso, txbEmail.Text, txbPregunta.Text, txbRespuesta.Text);
             lbAviso.Visible = true;
             lbAviso.Text = "Usuario " + txbNombre.Text + " editado correctamente";
             LNyAD.ModificarUsuarioPerfil(usuEdit);
             //Session["UsuarioActivo"] = usuEdit;
             btnCancelar.Text = "Volver";
-            Timer1.Enabled = true;
+            //Timer1.Enabled = true;
         }
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
-           /* byte acc = 0;
-            if (ddlTipo.Text == "Administrador")
-                acc = 1;
-            else if (ddlTipo.Text == "Normal")
-                acc = 2;
-            else if (ddlTipo.Text == "Deshabilitado")
-                acc = 0;*/
+           
             Usuario usuC = new Usuario(((Usuario)Session["UsuarioActivo"]).IdUsuario, txbNombre.Text, txbContrasenya.Text, ((Usuario)Session["UsuarioActivo"]).Acceso,txbEmail.Text,txbPregunta.Text,txbRespuesta.Text);//RECORDAR
 
             if (LNyAD.UsuarioActivo(txbNombre.Text).Count > 0&&txbNombre.Text==LNyAD.UsuarioActivo(txbNombre.Text)[0].Nombre&&LNyAD.UsuarioActivo(txbNombre.Text)[0].IdUsuario!=usuC.IdUsuario)
             {
-
-                //if (txbNombre.Text == LNyAD.UsuarioActivo(txbNombre.Text)[0].Nombre)
-                //{
                     args.IsValid = false;
-                //}
             }
         }
 
         protected void Timer1_Tick(object sender, EventArgs e)
         {
-            lbAviso.Visible = false;
-            Timer1.Enabled = false;
+            //lbAviso.Visible = false;
+            //Timer1.Enabled = false;
         }
     }
 }

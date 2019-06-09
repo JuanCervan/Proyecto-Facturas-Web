@@ -14,7 +14,6 @@ namespace InterfazWeb
         Linea linea;
         Factura factura;
         Cliente cliente;
-        //double cantidadSQL;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UsuarioActivo"] == null)
@@ -38,11 +37,13 @@ namespace InterfazWeb
                     txbPrecio.Text = linea.Precio.ToString();
                     cbIva.Text = linea.TipoIva.ToString();
                     RequiredCbConcepto.ControlToValidate = "txbConceptoE";
+                    btnGuardar.Text = "Actualizar";
                 }
                 else
                 {
                     CargaConceptoLineas();
                     lbCabecera.Text = "Añadir Línea a la Factura " + factura.Numero + " de " + cliente.Nombre;
+                    btnGuardar.Text = "Guardar";
                 }
             }
 
@@ -69,7 +70,7 @@ namespace InterfazWeb
             if (!Page.IsValid)
                 return;
 
-            Timer1.Enabled = false;
+            //Timer1.Enabled = false;
             if (cbConcepto.Visible==true)
              linea = new Linea(((Linea)Session["lineaE"]).IdLinea, factura.IdFactura, cbConcepto.SelectedItem.Text,Convert.ToDouble(txbCantidad.Text), Convert.ToDouble(txbPrecio.Text), Convert.ToInt32(cbIva.SelectedValue));
            else linea = new Linea(((Linea)Session["lineaE"]).IdLinea, factura.IdFactura, txbConceptoE.Text,Convert.ToDouble(txbCantidad.Text), Convert.ToDouble(txbPrecio.Text), Convert.ToInt32(cbIva.SelectedValue));
@@ -92,7 +93,7 @@ namespace InterfazWeb
                 txbPrecio.Text = "";
                 cbIva.Text = "";
             }
-            Timer1.Enabled = true;
+            //Timer1.Enabled = true;
             
         }
 
@@ -182,8 +183,8 @@ namespace InterfazWeb
 
         protected void Timer1_Tick(object sender, EventArgs e)
         {
-            lbAviso.Visible = false;
-            Timer1.Enabled = false;
+           // lbAviso.Visible = false;
+           // Timer1.Enabled = false;
         }
     }
 }

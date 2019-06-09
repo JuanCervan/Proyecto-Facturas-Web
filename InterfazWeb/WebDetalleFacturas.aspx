@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon"/>
     <title>Facturas Web v0.2</title>
     <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/estilos.css" rel="stylesheet" />
     <style>
         .moneda{
             text-align:right;
@@ -15,7 +16,8 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <div class="central">
+    <form id="form1" runat="server" class="centro">
     <div>
     
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -26,39 +28,35 @@
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label1" runat="server" Text="Fecha:"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txbFechaNueva" runat="server" TextMode="Date"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbFechaNueva" ErrorMessage="La fecha no pude estar vacia" ForeColor="Red" CssClass="alert-danger"></asp:RequiredFieldValidator>
+        <asp:Label ID="Label1" runat="server" Text="Fecha de factura:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txbFechaNueva" runat="server" TextMode="Date" Width="167px"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbFechaNueva" ErrorMessage="Debe indicar una fecha" ForeColor="Red" CssClass="alert-danger"></asp:RequiredFieldValidator>
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Label2" runat="server" Text="Número:"></asp:Label>
-&nbsp;<asp:TextBox ID="txbNumero" runat="server" ReadOnly="True"></asp:TextBox>
+        <asp:Label ID="Label2" runat="server" Text="Número de factura:"></asp:Label>
+&nbsp;&nbsp;<asp:TextBox ID="txbNumero" runat="server" ReadOnly="True" Width="168px"></asp:TextBox>
 &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbNumero" ErrorMessage="El número de factura no puede estar vacio" ForeColor="Red" Display="Dynamic" CssClass="alert-danger"></asp:RequiredFieldValidator>
         <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="txbNumero" ErrorMessage="El número de factura ya existe" ForeColor="Red" OnServerValidate="CustomValidator1_ServerValidate" CssClass="alert-danger"></asp:CustomValidator>
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;<br />
-        <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" CssClass="btn-primary" />
         &nbsp;
-        <asp:Button ID="btnCancelar" runat="server" CausesValidation="False" PostBackUrl="~/WebFacturas.aspx" Text="Cancelar" CssClass="btn-danger" />
+        <asp:Button ID="btnCancelar" runat="server" CausesValidation="False" PostBackUrl="~/WebFacturas.aspx" Text="Volver" CssClass="btn-danger" />
         &nbsp;
         <asp:Label ID="lbAviso" runat="server" Text="Label" Visible="False" CssClass="alert-success"></asp:Label>
         <br />
         <br />
-        <asp:Timer ID="Timer1" runat="server" Interval="3000" OnTick="Timer1_Tick">
-        </asp:Timer>
-        <asp:ScriptManager ID="ScriptManager1" runat="server">
-        </asp:ScriptManager>
         <br />
     
     </div>
     </form>
+        </div>
 </body>
 </html>

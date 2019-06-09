@@ -53,7 +53,7 @@ namespace InterfazWeb
             listaUsuarios = LNyAD.CargaComboUsuarios();
             List<Usuario> listaTodosUsuarios = new List<Usuario>(listaUsuarios);
             listaTodosUsuarios.Insert(0, new Usuario(0, "Todos los Usuarios","",0,"","",""));
-            listaTodosUsuarios.Add(new Usuario(-2, "Sin Asignar", "", 0, "", "", ""));
+           // listaTodosUsuarios.Add(new Usuario(-2, "Sin Asignar", "", 0, "", "", ""));
             ddlUsuario.DataSource = listaTodosUsuarios;
             ddlUsuario.DataTextField = "Nombre";
             ddlUsuario.DataValueField = "IdUsuario";
@@ -257,9 +257,11 @@ namespace InterfazWeb
             if (txbBuscar.Text != "")
             {
                 dgv.Columns[1].Visible = true;
+                dgv.Columns[2].Visible = true;
                 dgv.DataSource=LNyAD.BuscaClientes(txbBuscar.Text);
                 dgv.DataBind();
                 dgv.Columns[1].Visible = false;
+                dgv.Columns[2].Visible = false;
                 lbBuscar.Visible = false;
                 if (dgv.Rows.Count == 0)
                      {
@@ -292,24 +294,19 @@ namespace InterfazWeb
 
         protected void dgv_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            dgv.PageIndex = e.NewPageIndex;//FUNCIONA!!!
+            dgv.PageIndex = e.NewPageIndex;
             Session["pag"] = e.NewPageIndex;
             CargaClientes();
         }
 
         protected void btnPerfil_Click(object sender, EventArgs e)
         {
-          // int idUsuario=((Usuario)Session["UsuarioActivo"]).IdUsuario;
-            //usuEdit = LNyAD.DevuelveUsuario(idUsuario);
-          // Session["UsuarioEditPerfil"] = usuEdit;
             Response.Redirect("WebPerfilUsuario.aspx");
         }
 
         protected void btnPrint_Click(object sender, EventArgs e)
         {
-            /*int pag = dgv.PageIndex;
-            Session["pag"] = pag;
-            Response.Redirect("WebInformeClientes.aspx");*/
+            
         }
 
         protected void ddlUsuario_SelectedIndexChanged(object sender, EventArgs e)

@@ -17,6 +17,7 @@ namespace InterfazWeb
                 Response.Redirect("WebLogin.aspx");
 
             ReportViewer1.LocalReport.ReportPath = Server.MapPath("bin/ListaClientes.rdlc");
+            ReportViewer1.LocalReport.DisplayName = "Listado de Clientes";
         }
 
         private void SuppressExportButton(ReportViewer rv, string optionToSuppress)

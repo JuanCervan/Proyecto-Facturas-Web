@@ -7,14 +7,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Facturas Web 0.2</title>
     <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/estilos.css" rel="stylesheet" />
     <style type="text/css">
-        .auto-style1 {
-            color: #333333;
+        .auto-style7 {
+            width: 4px;
+            height: 16px;
+        }
+        .auto-style8 {
+            width: 467px;
+            height: 16px;
+        }
+        .auto-style9 {
+            height: 16px;
+        }
+        .auto-style10 {
+            width: 4px;
+        }
+        .auto-style12 {
+            width: 467px;
         }
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <div class="central">
+    <form id="form1" runat="server" class="centro">
         <p>
             <br />
 &nbsp;
@@ -23,7 +39,7 @@
             <asp:Label ID="Label1" runat="server" Font-Size="XX-Large" Text="Conceptos de Facturación"></asp:Label>
         </p>
         <p>
-            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:GridView ID="dgv" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDeleting="dgv_RowDeleting" OnRowEditing="dgv_RowEditing" OnRowDataBound="dgv_RowDataBound" ShowFooter="True" EmptyDataText="No hay Conceptos de Facturación" ShowHeaderWhenEmpty="True" AllowPaging="True" PageSize="4" OnPageIndexChanging="dgv_PageIndexChanging">
+            &nbsp;&nbsp;&nbsp; <asp:GridView ID="dgv" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDeleting="dgv_RowDeleting" OnRowEditing="dgv_RowEditing" OnRowDataBound="dgv_RowDataBound" ShowFooter="True" EmptyDataText="No hay Conceptos de Facturación" ShowHeaderWhenEmpty="True" AllowPaging="True" PageSize="4" OnPageIndexChanging="dgv_PageIndexChanging">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:CommandField ButtonType="Image" EditImageUrl="~/img/editar2.png" HeaderText="Editar" ShowEditButton="True">
@@ -55,35 +71,28 @@
             </asp:GridView>
         </p>
         <p>
-            &nbsp;</p>
-        <p class="auto-style1">
-            &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnAnyadir" runat="server" CssClass="btn-primary" Text="Añadir Concepto..." OnClick="btnAnyadir_Click" />
+            &nbsp;<asp:Button ID="btnAnyadir" runat="server" CssClass="btn-primary" Text="Añadir Concepto..." OnClick="btnAnyadir_Click" />
 &nbsp;
             <asp:Button ID="btnVolver" runat="server" CssClass="btn-danger" PostBackUrl="~/WebDetalleLinea.aspx" Text="Volver" />
         </p>
-        <p class="auto-style1">
-            &nbsp;</p>
-        <p class="auto-style1">
-        <asp:Panel ID="Panel1" runat="server" BackColor="Silver" Height="87px" Visible="False">
+        <asp:Panel ID="Panel1" runat="server" Height="87px" Visible="False">
             <table style="width:100%;">
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style7"></td>
+                    <td class="auto-style8"></td>
+                    <td class="auto-style9"></td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lbConfirmacion"  runat="server" Text="Label" Visible="False"></asp:Label>
+                    <td class="auto-style10">&nbsp;</td>
+                    <td class="auto-style12">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <asp:Label ID="lbConfirmacion"  runat="server" Text="Label" Visible="False" Font-Bold="True"></asp:Label>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnSi" runat="server" OnClick="btnSi_Click" Text="Si" Visible="False" CssClass="btn-outline-success" Width="33px" />
+                    <td class="auto-style10">&nbsp;</td>
+                    <td class="auto-style12">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="btnSi" runat="server" OnClick="btnSi_Click" Text="Si" Visible="False" CssClass="btn-outline-success" Width="33px" />
                         &nbsp;
                         <asp:Button ID="btnNo" runat="server" OnClick="btnNo_Click" Text="No" Visible="False" CssClass="btn-outline-danger" />
                     </td>
@@ -96,5 +105,6 @@
     
     </div>
     </form>
+        </div>
 </body>
 </html>

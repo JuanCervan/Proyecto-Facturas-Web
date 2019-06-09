@@ -16,6 +16,7 @@ namespace InterfazWeb
             if (Session["UsuarioActivo"] == null)
                 Response.Redirect("WebLogin.aspx");
             ReportViewer1.LocalReport.ReportPath = Server.MapPath("bin/ListUsuarios.rdlc");
+            ReportViewer1.LocalReport.DisplayName = "Listado de Usuarios";
         }
 
         private void SuppressExportButton(ReportViewer rv, string optionToSuppress)

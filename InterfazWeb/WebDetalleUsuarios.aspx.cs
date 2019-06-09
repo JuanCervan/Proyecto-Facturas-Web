@@ -73,6 +73,7 @@ namespace InterfazWeb
             //ddlTipo.Text = tipo;
             ddlTipo.SelectedValue = usu.Acceso.ToString();
             string tipo = ddlTipo.Text;
+            Session["tipoAct"] = tipo;
             txbEmail.Text = usu.Email;
             if (tipo=="Administrador"&&numAdm == 1)
                 ddlTipo.Enabled = false;
@@ -117,13 +118,13 @@ namespace InterfazWeb
             }
             String tipoAct = (string)Session["tipoAct"];
             string tipo = LNyAD.TipoUsuario(usu.Acceso);
-            if (tipoAct == "Deshabilitado" && tipo != "Deshabilitado")
+            if (tipoAct == "3" && tipo != "Deshabilitado")
             {
                 MailMessage correo = new MailMessage();
                 correo.To.Add(usu.Email);
                 correo.Subject = "Cambio de Tipo de Usuario en Facturas Web v0.2";
                 correo.Body = "Estimado Usuario "+usu.Nombre+", ya ha sido habilitado. Puede acceder a la aplicación.\n\nGracias por usar Facturas Web v0.2";
-                correo.From = new MailAddress("facturasweb@j2c.es");
+                correo.From = new MailAddress("facturasweb@j2c.es","Facturas Web");
                 SmtpClient cliente = new SmtpClient("smtp.ionos.es");
                 cliente.Credentials = new System.Net.NetworkCredential("facturasweb@j2c.es", "Proyecto2019@");
                 cliente.Port = 587;
@@ -131,7 +132,7 @@ namespace InterfazWeb
                 try
                 {
                     cliente.Send(correo);
-                    lbAviso.Text = "Usuario "+usu.Nombre+" editado correctamente. Se ha enviado a " + usu.Email + " el nuevo Tipo de acceso correctamente";
+                    lbAviso.Text = "Enviado a " + usu.Email + " el nuevo Tipo de acceso";
                     lbAviso.CssClass = "alert-info";
                     lbAviso.Visible = true;
 

@@ -22,9 +22,6 @@
             width: 67%;
             text-align:left;
         }
-        .auto-style5 {
-            width: 35%;
-        }
         .auto-style6 {
             width: 33%;
             height: 71px;
@@ -88,7 +85,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="btnEntrar" runat="server" CssClass="btn-primary" OnClick="Button1_Click" Text="Entrar" Width="70px" ValidationGroup="login" />
                         &nbsp;
-                        <asp:Button ID="btnRegistro" runat="server" CausesValidation="False" OnClick="Button2_Click" Text="Registro" Width="70px" CssClass="btn-success" />
+                        <asp:Button ID="btnRegistro" runat="server" CausesValidation="False" OnClick="Button2_Click" Text="Registro" Width="75px" CssClass="btn-success" />
 &nbsp;
                         <asp:Label ID="lbAviso" runat="server" ForeColor="Blue" Text="Label" Visible="False" CssClass="alert-info"></asp:Label>
                         <br />

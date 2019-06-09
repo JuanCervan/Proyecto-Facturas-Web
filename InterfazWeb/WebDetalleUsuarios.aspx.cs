@@ -140,7 +140,7 @@ namespace InterfazWeb
                 }
                 catch
                 {
-                    lbAviso.Text = "Usuario "+usu.Nombre+" editado correctamente. No se ha podido enviar el correo a " + usu.Email + ",la dirección de Email es incorrecta";
+                    lbAviso.Text = "No se ha podido enviar el correo a " + usu.Email;
                     lbAviso.CssClass = "alert-danger";
                     lbAviso.Visible = true;
                     

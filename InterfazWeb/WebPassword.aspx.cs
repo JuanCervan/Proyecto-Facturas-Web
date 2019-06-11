@@ -54,7 +54,7 @@ namespace InterfazWeb
                 correo.Body = "Datos de Acceso a Facturas Web v0.2\n\nUsuario: " + user.Nombre + "\nContraseña: " + user.Contrasenya;
                 correo.From = new MailAddress("facturasweb@j2c.es","Facturas Web");
                 SmtpClient cliente = new SmtpClient("smtp.ionos.es");
-                cliente.Credentials = new System.Net.NetworkCredential("facturasweb@j2c.es", "Proyecto2019@");
+                cliente.Credentials = new System.Net.NetworkCredential("facturasweb@j2c.es", "Proyecto2019");
                 cliente.Port = 587;
                 cliente.EnableSsl = true;
                 try

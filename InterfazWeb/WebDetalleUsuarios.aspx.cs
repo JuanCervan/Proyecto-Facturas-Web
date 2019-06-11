@@ -31,11 +31,13 @@ namespace InterfazWeb
                 {
                     CargaDatos();
                     btnGuardar.Text = "Actualizar";
+                    lbCabecera.Text = "Editar Usuario";
                 }
                 else
                 {
                     DatosVacios();
                     btnGuardar.Text = "Guardar";
+                    lbCabecera.Text = "Añadir Usuario";
                 }
                 
             }
@@ -126,7 +128,7 @@ namespace InterfazWeb
                 correo.Body = "Estimado Usuario "+usu.Nombre+", ya ha sido habilitado. Puede acceder a la aplicación.\n\nGracias por usar Facturas Web v0.2";
                 correo.From = new MailAddress("facturasweb@j2c.es","Facturas Web");
                 SmtpClient cliente = new SmtpClient("smtp.ionos.es");
-                cliente.Credentials = new System.Net.NetworkCredential("facturasweb@j2c.es", "Proyecto2019@");
+                cliente.Credentials = new System.Net.NetworkCredential("facturasweb@j2c.es", "Proyecto2019");
                 cliente.Port = 587;
                 cliente.EnableSsl = true;
                 try

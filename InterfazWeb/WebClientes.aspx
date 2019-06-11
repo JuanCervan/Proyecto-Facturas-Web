@@ -156,7 +156,7 @@
                         &nbsp;
                         <asp:Button ID="btnPerfil" runat="server" CssClass="btn-primary" OnClick="btnPerfil_Click" Text="Editar Perfil..." />
                     &nbsp; <asp:Button ID="btnCerrar" runat="server" PostBackUrl="~/WebLogin.aspx" Text="Cerrar Sesion" OnClick="btnCerrar_Click1" CssClass="btn-danger" Height="32px" />
-                    &nbsp; 
+                    &nbsp;&nbsp; 
                     &nbsp;</td>
                     <td class="auto-style18">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -19,7 +19,7 @@
     
         <asp:Image ID="Image1" runat="server" Height="72px" ImageUrl="~/img/userBig.png" Width="70px" />
 &nbsp;
-        <asp:Label ID="Label1" runat="server" Font-Size="XX-Large" Text="Detalle Usuarios"></asp:Label>
+        <asp:Label ID="lbCabecera" runat="server" Font-Size="XX-Large" Text="Detalle Usuarios"></asp:Label>
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
